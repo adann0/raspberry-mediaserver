@@ -32,7 +32,7 @@ def exec(cmd, out=False) :
   p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
   output = p.communicate()[0]
   if out :
-    print(output.decode("utf-8"))
+    print(output.decode("utf-8").encode("utf-8"))
   return(p.returncode)
 
 """
