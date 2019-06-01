@@ -114,6 +114,10 @@ Reboot une dernière fois :
 
     $ sudo apt install darkstat
     $ sudo nano /etc/darkstat/init.cfg
+    
+    START_DARKSTAT=yes
+    BINDIP="-b x.x.x.x"
+    
     $ sudo service darkstat restart
     
 http://ip:666
