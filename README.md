@@ -137,3 +137,9 @@ On commence par remplacer le fichier smb.conf du repo par celui dans /etc/samba 
     $ sudo smbpasswd -W #on renseigne le password rootdn
 
     $ sudo apt install libnss-ldap
+
+Il y a juste a renseigner les champs, après on peut essayer de se connecter a la base LDAP avec :
+
+    $ sudo smbpasswd -a <user>
+    
+On doit avoir "The LDAP server is successfully connected" mais si on change le mot de passe de l'utilisateur ça ne fonctionne pas. Seulement, on peut maintenant faire un Groupe Samba sur phpLDAPAdmin, lier les membres a ce groupes, puis ensuite changer le mot de passe sur l'utilisateur avec la commande smbpasswd et ça fonctionne.
