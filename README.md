@@ -13,7 +13,7 @@ https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#disk-format
 ## Installation
 
     $ sudo apt-get install samba samba-common-bin -y
-    $ sudo smbpasswd -a nqqb
+    $ sudo smbpasswd -a <user>
     $ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
     $ sudo nano /etc/samba/smb.conf
 
