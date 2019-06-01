@@ -106,6 +106,10 @@ http://ip:32400/web
     
     192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw  0  0
 
+Si le automount ne fonctionne pas cette ligne résoud surement le problème :
+
+    192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw,noauto,x-systemd.automount  0  0
+
 Alternative : GlusterFS (attention a la lenteur sur les petits fichiers en USB) https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#glusterfs
 
 # HTTPS
