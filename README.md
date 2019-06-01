@@ -116,3 +116,13 @@ Alternative : GlusterFS (attention a la lenteur sur les petits fichiers en USB) 
 
     https://github.com/adann0/docker-nginx-letsencrypt
     https://github.com/adann0/openldap-armv7#openldap-certificates
+
+# Docker Compose
+
+    $ git clone https://github.com/adann0/raspberry-mediaserver.git &&
+    cd raspberry-mediaserver
+    
+Il faut remplacer chaque valeur de example.com par le nom de domaine, mettre le mot de passe pour la base de donnée LDAP.
+
+    $ mv nginx.conf /etc/nginx
+    $ docker-compose up -d
