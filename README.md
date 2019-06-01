@@ -4,6 +4,8 @@
 
 https://gist.github.com/adann0/9eff3e831e514988579337dc11492570
 
+# Locales
+
 # Disk Format & Mount
 
 https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#disk-format
@@ -14,8 +16,8 @@ https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#disk-format
 
     $ sudo apt-get install samba samba-common-bin -y
     $ sudo smbpasswd -a <user>
-    $ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
-    $ sudo nano /etc/samba/smb.conf
+    $ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak &&
+    sudo nano /etc/samba/smb.conf
 
 On modifie :
 
@@ -80,9 +82,9 @@ smb://ip
     sudo mkdir -p /etc/deluge &&
     sudo chown -R $USER:$USER /etc/deluge
 
-# Docker-Compose
+# Deluge
 
-    $ git clone https://github.com/adann0/raspberry-mediaserver.git &&
-    cd raspberry-mediaserver &&
-    docker-compose up -d
+    $ sudo apt-get install deluge &&
+    sudo service deluged start &&
+    sudo service deluge-web start
 
