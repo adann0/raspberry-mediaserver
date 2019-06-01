@@ -36,6 +36,7 @@ Tout en bas du fichier on ajoute :
     browseable = yes
     public = yes
     guest ok = no
+    write list = <user>
 
 On sauvegarde puis :
 
