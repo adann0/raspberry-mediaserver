@@ -27,7 +27,7 @@ En ca :
 
 Tout en bas du fichier on ajoute :
 
-    [Media Server]
+    [Media]
     comment = Read Only Media Server Folder Share from RPi
     path = “/mnt/usb/mediaserver”
     create mask = 0710
