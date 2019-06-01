@@ -64,5 +64,12 @@ Puis :
     $ sudo service smbd restart
     $ sudo reboot
 
+smb://ip
 
+# Plex
 
+    $ sudo apt-get update && sudo apt-get upgrade -y
+    $ wget https://downloads.plex.tv/plex-media-server-new/1.15.3.876-ad6e39743/debian/plexmediaserver_1.15.3.876-ad6e39743_armhf.deb
+    $ sudo dpkg -i plexmediaserver_1.15.3.876-ad6e39743_armhf.deb
+
+http://ip:32400/web
