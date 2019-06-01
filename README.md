@@ -73,3 +73,10 @@ smb://ip
     $ sudo dpkg -i plexmediaserver_1.15.3.876-ad6e39743_armhf.deb
 
 http://ip:32400/web
+
+# Docker
+
+Potentiellement sur un second Raspberry.
+
+    $ curl -sSL get.docker.com | sh
+    
