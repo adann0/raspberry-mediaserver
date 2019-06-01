@@ -25,6 +25,7 @@ Execute une commande passé en argument et retourne le code erreur/sortie
 """
 
 def exec(cmd) :
+  print("$ " + cmd)
   p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
   output = p.communicate()[0]
   return(p.returncode)
