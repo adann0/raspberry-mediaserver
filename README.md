@@ -79,6 +79,8 @@ http://ip:32400/web
 (Potentiellement sur un second Raspberry.)
 
     $ curl -sSL get.docker.com | sh
+    $ sudo usermod -aG docker <user>
+    $ sudo reboot
     
 # HTTPS
 
