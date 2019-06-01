@@ -92,6 +92,10 @@ http://ip:32400/web
     /mnt/usb/mediaserver 192.168.x.x *(rw,sync)
 
     node01$ sudo exportfs
+    node01$ sudo udisks --unmount /dev/sda1
+    node01$ sudo umount -l /data/brick1 ## if the disk is busy
+    node01$ sudo udisks --detach /dev/sda
+    node01$ sudo reboot
     
     node02$ sudo apt-get install nfs-common -y
     node02$ sudo mkdir -p /mnt/usb/mediaserver
@@ -101,17 +105,6 @@ http://ip:32400/web
     node02$ sudo nano /etc/fstab
     
     192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw  0  0
-    
-Pour reboot proprement le Raspberry avec le disque + NFS on devrait faire :
-
-    node01$ service nfslock stop
-    node01$ service nfs stop
-    node01$ service portmap stop
-    node01$ umount /proc/fs/nfsd
-    node01$ sudo udisks --unmount /dev/sda1
-    node01$ sudo umount -l /data/brick1 ## if the disk is busy
-    node01$ sudo udisks --detach /dev/sda
-    node01$ sudo reboot
 
 # HTTPS
 
