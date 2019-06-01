@@ -75,9 +75,6 @@ Puis :
     $ sudo udisks --detach /dev/sda
     $ sudo reboot
 
-
-    $ sudo reboot
-
 smb://ip
 
 # Plex
@@ -98,9 +95,6 @@ http://ip:32400/web/index.html
     > exit
     $ sudo pkill deluged 
     $ deluged
-
-    $ sudo pkill deluge-web 
-    $ nano ~/.config/deluge/web.conf
     
     $ sudo nano /etc/rc.local
 
@@ -115,4 +109,6 @@ Reboot une dernière fois :
     $ sudo udisks --unmount /dev/sda1
     $ sudo udisks --detach /dev/sda
     $ sudo reboot
+    
+
 
