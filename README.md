@@ -76,7 +76,7 @@ http://ip:32400/web
 
 # Docker
 
-(Potentiellement sur un second Raspberry.)
+(Potentiellement sur un second Raspberry, pour installer des apps supplémentaires comme Deluge ou autre le mieux est je pense de passer par Docker.)
 
     $ curl -sSL get.docker.com | sh
     $ sudo usermod -aG docker <user>
