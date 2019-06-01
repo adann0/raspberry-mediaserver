@@ -81,6 +81,26 @@ http://ip:32400/web
     $ curl -sSL get.docker.com | sh
     $ sudo usermod -aG docker <user>
     $ sudo reboot
+
+# NFS
+
+(Si on a un deuxième Raspberry on devrait vouloir acceder aux données du disque dur connecté au premier Raspberry)
+
+    node01$ sudo apt-get install nfs-common nfs-server -y
+    node01$ sudo nano sudo nano /etc/exports
+    
+    /mnt/usb/mediaserver 192.168.x.x *(rw,sync)
+
+    node01$ sudo exportfs
+    
+    node02$ sudo apt-get install nfs-common -y
+    node02$ sudo mkdir -p /mnt/usb/mediaserver
+    node02$ sudo chown -R <user>:<user> /mnt/usb/mediaserver
+    node02$ sudo mount 192.168.x.x:/mnt/usb/mediaserver /mnt/usb/mediaserver
+    
+    node02$ sudo nano /etc/fstab
+    
+    192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw  0  0
     
 # HTTPS
 
