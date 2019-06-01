@@ -84,7 +84,7 @@ smb://ip
 
 # Docker-Compose
 
-    $ git clone &&
+    $ git clone https://github.com/adann0/raspberry-mediaserver.git &&
     cd raspberry-mediaserver &&
     docker-compose up -d
 
