@@ -66,6 +66,22 @@ Puis :
 
 smb://ip
 
+# Plex
+
+    $ cd && 
+    wget https://downloads.plex.tv/plex-media-server-new/1.15.3.876-ad6e39743/debian/plexmediaserver_1.15.3.876-ad6e39743_armhf.deb &&
+    sudo dpkg -i plexmediaserver_1.15.3.876-ad6e39743_armhf.deb &&
+    rm plexmediaserver_1.15.3.876-ad6e39743_armhf.deb
+
+# Three
+
+    $ mkdir -p /mnt/usb/mediaserver/Deposit/.backup &&
+    mkdir -p /mnt/usb/mediaserver/Deposit/.downloading &&
+    mkdir -p /mnt/usb/mediaserver/Films &&
+    mkdir -p /mnt/usb/mediaserver/Series &&
+    sudo mkdir -p /etc/deluge &&
+    sudo chown -R $USER:$USER /etc/deluge
+
 # Docker-Compose
 
     $ git clone &&
