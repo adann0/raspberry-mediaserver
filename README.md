@@ -71,6 +71,11 @@ On ajoute ça à la fin de notre config serveur :
 Puis :
 
     $ sudo service smbd restart
+    $ sudo udisks --unmount /dev/sda1
+    $ sudo udisks --detach /dev/sda
+    $ sudo reboot
+
+
     $ sudo reboot
 
 smb://ip
@@ -105,4 +110,9 @@ Avant “exit 0” on met :
     sudo -u <user> /usr/bin/python /usr/bin/deluged
     sudo -u <user> /usr/bin/python /usr/bin/deluge-web
 
+Reboot une dernière fois :
+
+    $ sudo udisks --unmount /dev/sda1
+    $ sudo udisks --detach /dev/sda
+    $ sudo reboot
 
