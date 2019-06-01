@@ -11,7 +11,7 @@ Faire peut être un dictionnaire favorisant la recursivité d'une fonction actio
 import sys
 import subprocess
 
-arg = ["start", "reboot", "stop"] #liste avec tout les arg
+arg = ["start", "reboot", "stop", "status"] #liste avec tout les arg
 
 """
 Fonction chargée de repérer si la commande comporte une erreur
@@ -24,22 +24,29 @@ def false_arg() :
 
 """
 Execute une commande passé en argument et retourne le code erreur/sortie
+Print sur stdout la commande si out=True
 """
 
-def exec(cmd) :
+def exec(cmd, out=False) :
   print("$ " + cmd)
   p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
   output = p.communicate()[0]
+  if out :
+    print(output.decode("utf-8"))
   return(p.returncode)
 
 """
-Arrete tous les services
+Lance les services qui ne le sont pas au démarrage du système
 """
 
 def start() :
   deluge = "docker start deluge"
   if exec(deluge) != 0 :
     print("start: can't start deluge")
+
+"""
+Arrete tous les services
+"""
 
 def stop() :
   deluge = "docker stop deluge"
@@ -55,6 +62,14 @@ def stop() :
     print("stop: can't stop samba")
     sys.exit(6)
   return()
+
+"""
+Donne des infos sur les services
+"""
+
+def status() :
+  deluge = "docker logs deluge"
+  
   
 """
 Ejecte le disque dur
