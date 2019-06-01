@@ -76,7 +76,11 @@ http://ip:32400/web
 
 # Docker
 
-Potentiellement sur un second Raspberry.
+(Potentiellement sur un second Raspberry.)
 
     $ curl -sSL get.docker.com | sh
     
+# HTTPS
+
+    https://github.com/adann0/docker-nginx-letsencrypt
+    https://github.com/adann0/openldap-armv7#openldap-certificates
