@@ -54,13 +54,13 @@ def stop() :
   samba = "sudo service smbd stop"
   if exec(deluge) != 0 :
     print("stop: can't stop deluge")
-    sys.exit(4)
+    sys.exit(11)
   if exec(plex) != 0 :
     print("stop: can't stop plex")
-    sys.exit(5)
+    sys.exit(12)
   if exec(samba) != 0 :
     print("stop: can't stop samba")
-    sys.exit(6)
+    sys.exit(13)
   return()
 
 """
@@ -69,7 +69,18 @@ Donne des infos sur les services
 
 def status() :
   deluge = "docker logs deluge"
-  
+  plex = "sudo systemctl status plexmediaserver.service"
+  samba = "sudo service smbd status"
+    if exec(deluge) != 0 :
+    print("status: can't get deluge")
+    sys.exit(21)
+  if exec(plex) != 0 :
+    print("status: can't get plex")
+    sys.exit(22)
+  if exec(samba) != 0 :
+    print("status: can't get samba")
+    sys.exit(23)
+ return()
   
 """
 Ejecte le disque dur
