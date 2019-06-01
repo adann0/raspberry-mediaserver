@@ -126,3 +126,14 @@ Il faut remplacer chaque valeur de example.com par le nom de domaine, mettre le 
 
     $ mv nginx.conf /etc/nginx
     $ docker-compose up -d
+    
+# Samba OpenLDAP
+
+On commence par remplacer le fichier smb.conf du repo par celui dans /etc/samba après avoir changé example.com et le path...
+
+    $ sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.old
+    $ sudo mv smb.conf /etc/samba
+    
+    $ sudo smbpasswd -W #on renseigne le password rootdn
+
+    $ sudo apt install libnss-ldap
