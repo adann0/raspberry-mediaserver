@@ -110,5 +110,11 @@ Reboot une dernière fois :
     $ sudo udisks --detach /dev/sda
     $ sudo reboot
     
+# Darkstat
 
+    $ sudo apt install darkstat
+    $ sudo nano /etc/darkstat/init.cfg
+    $ sudo service darkstat restart
+    
+http://ip:666
 
