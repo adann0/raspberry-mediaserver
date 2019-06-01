@@ -11,7 +11,7 @@ Faire peut être un dictionnaire favorisant la recursivité d'une fonction actio
 import sys
 import subprocess
 
-arg = ["start", "reboot", "stop", "status"] #liste avec tout les arg
+arg = ["start", "stop", "restart", "reboot", "status"] #liste avec tout les arg
 
 """
 Fonction chargée de repérer si la commande comporte une erreur
@@ -54,14 +54,27 @@ def stop() :
   samba = "sudo service smbd stop"
   if exec(deluge) != 0 :
     print("stop: can't stop deluge")
-    sys.exit(11)
   if exec(plex) != 0 :
     print("stop: can't stop plex")
-    sys.exit(12)
   if exec(samba) != 0 :
     print("stop: can't stop samba")
-    sys.exit(13)
   return()
+
+"""
+Restart tous les services
+"""
+
+def restart() :
+  deluge = "docker restart deluge"
+  plex = "sudo systemctl restart plexmediaserver.service"
+  samba = "sudo service smbd restart"
+  if exec(deluge) != 0 :
+    print("restart: can't stop deluge")
+  if exec(plex) != 0 :
+    print("restart: can't stop plex")
+  if exec(samba) != 0 :
+    print("restart: can't stop samba")
+  return()  
 
 """
 Donne des infos sur les services
@@ -73,13 +86,10 @@ def status() :
   samba = "sudo service smbd status"
   if exec(deluge, out=True) != 0 :
     print("status: can't get deluge")
-    sys.exit(21)
   if exec(plex, out=True) != 0 :
     print("status: can't get plex")
-    sys.exit(22)
   if exec(samba, out=True) != 0 :
     print("status: can't get samba")
-    sys.exit(23)
  return()
   
 """
@@ -115,7 +125,11 @@ if __name__ == "__main__" :
     stop()
     eject()
     reboot()
-  elif sys.argv[2] == "stop" :
+  elif sys.argv[1] == "stop" :
     stop()
-  elif sys.argv[2] == "start" :
+  elif sys.argv[1] == "start" :
     start()
+  elif sys.argv[1] == "restart" :
+    restart()
+  elif sys.argv[1] == "status" :
+    status()
