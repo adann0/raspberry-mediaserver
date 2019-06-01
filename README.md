@@ -84,7 +84,15 @@ smb://ip
 
 # Deluge
 
-    $ sudo apt-get install deluge &&
-    sudo service deluged start &&
-    sudo service deluge-web start
+    $ sudo apt-get install deluge deluged deluge-console deluge-web
+    $ deluged 
+    $ deluge-console
+    > config -s allow_remote True 
+    > exit
+    $ sudo pkill deluged 
+    $ deluged
+
+    $ sudo pkill deluge-web 
+    $ nano ~/.config/deluge/web.conf
+
 
