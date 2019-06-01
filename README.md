@@ -74,72 +74,8 @@ smb://ip
 
 http://ip:32400/web
 
-# Docker
+# Deluge
 
-(Potentiellement sur un second Raspberry, pour installer des apps supplémentaires comme Deluge ou autre le mieux est je pense de passer par Docker.)
+# Vnstat
 
-    $ curl -sSL get.docker.com | sh
-    $ sudo usermod -aG docker <user>
-    $ sudo reboot
 
-# NFS
-
-(Si on a un deuxième Raspberry on devrait vouloir acceder aux données du disque dur connecté au premier Raspberry)
-
-    node01$ sudo apt-get install nfs-common nfs-server -y
-    node01$ sudo nano sudo nano /etc/exports
-    
-    /mnt/usb/mediaserver 192.168.0.x(rw,sync)
-
-    node01$ sudo exportfs
-    node01$ sudo udisks --unmount /dev/sda1
-    node01$ sudo umount -l /data/brick1 ## if the disk is busy
-    node01$ sudo udisks --detach /dev/sda
-    node01$ sudo reboot
-    
-    node02$ sudo apt-get install nfs-common -y
-    node02$ sudo mkdir -p /mnt/usb/mediaserver
-    node02$ sudo chown -R <user>:<user> /mnt/usb/mediaserver
-    node02$ sudo mount 192.168.x.x:/mnt/usb/mediaserver /mnt/usb/mediaserver
-    
-    node02$ sudo nano /etc/fstab
-    
-    192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw  0  0
-
-Si le automount ne fonctionne pas cette ligne résoud surement le problème :
-
-    192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw,noauto,x-systemd.automount  0  0
-
-Alternative : GlusterFS (attention a la lenteur sur les petits fichiers en USB) https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#glusterfs
-
-# HTTPS
-
-    https://github.com/adann0/docker-nginx-letsencrypt
-    https://github.com/adann0/openldap-armv7#openldap-certificates
-
-# Docker Compose
-
-    $ git clone https://github.com/adann0/raspberry-mediaserver.git &&
-    cd raspberry-mediaserver
-    
-Il faut remplacer chaque valeur de example.com par le nom de domaine, mettre le mot de passe pour la base de donnée LDAP.
-
-    $ mv nginx.conf /etc/nginx
-    $ docker-compose up -d
-    
-# Samba OpenLDAP
-
-On commence par remplacer le fichier smb.conf du repo par celui dans /etc/samba après avoir changé example.com et le path...
-
-    $ sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.old
-    $ sudo mv smb.conf /etc/samba
-    
-    $ sudo smbpasswd -W #on renseigne le password rootdn
-
-    $ sudo apt install libnss-ldap
-
-Il y a juste a renseigner les champs, après on peut essayer de se connecter a la base LDAP avec :
-
-    $ sudo smbpasswd -a <user>
-    
-On doit avoir "The LDAP server is successfully connected" mais si on change le mot de passe de l'utilisateur ça ne fonctionne pas. Seulement, on peut maintenant faire un Groupe Samba sur phpLDAPAdmin, lier les membres a ce groupes, puis ensuite changer le mot de passe sur l'utilisateur avec la commande smbpasswd et ça fonctionne.
