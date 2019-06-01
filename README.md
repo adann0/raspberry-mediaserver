@@ -89,7 +89,7 @@ http://ip:32400/web
     node01$ sudo apt-get install nfs-common nfs-server -y
     node01$ sudo nano sudo nano /etc/exports
     
-    /mnt/usb/mediaserver 192.168.x.x *(rw,sync)
+    /mnt/usb/mediaserver 192.168.0.x(rw,sync)
 
     node01$ sudo exportfs
     node01$ sudo udisks --unmount /dev/sda1
