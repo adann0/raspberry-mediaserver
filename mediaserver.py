@@ -71,7 +71,7 @@ def status() :
   deluge = "docker logs deluge"
   plex = "sudo systemctl status plexmediaserver.service"
   samba = "sudo service smbd status"
-    if exec(deluge, out=True) != 0 :
+  if exec(deluge, out=True) != 0 :
     print("status: can't get deluge")
     sys.exit(21)
   if exec(plex, out=True) != 0 :
