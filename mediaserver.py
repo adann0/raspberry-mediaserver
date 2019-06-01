@@ -17,8 +17,8 @@ Fonction chargée de repérer si la commande comporte une erreur
 
 def false_arg() :
   if (len(sys.argv) < 2) or (len(sys.argv) == 2 and sys.argv[1] not in arg) : 
-    return(False)
-  return(True)
+    return(True)
+  return(False)
 
 """
 Execute une commande passé en argument et retourne le code erreur/sortie
