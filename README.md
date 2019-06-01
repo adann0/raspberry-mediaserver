@@ -102,6 +102,17 @@ http://ip:32400/web
     
     192.168.x.x:/mnt/usb/mediaserver   /mnt/usb/mediaserver   nfs    rw  0  0
     
+Pour reboot proprement le Raspberry avec le disque + NFS on devrait faire :
+
+    node01$ service nfslock stop
+    node01$ service nfs stop
+    node01$ service portmap stop
+    node01$ umount /proc/fs/nfsd
+    node01$ sudo udisks --unmount /dev/sda1
+    node01$ sudo umount -l /data/brick1 ## if the disk is busy
+    node01$ sudo udisks --detach /dev/sda
+    node01$ sudo reboot
+
 # HTTPS
 
     https://github.com/adann0/docker-nginx-letsencrypt
