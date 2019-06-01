@@ -82,6 +82,8 @@ smb://ip
     sudo dpkg -i plexmediaserver_1.15.3.876-ad6e39743_armhf.deb &&
     rm plexmediaserver_1.15.3.876-ad6e39743_armhf.deb
 
+http://ip:32400/web/index.html
+
 # Deluge
 
     $ sudo apt-get install deluge deluged deluge-console deluge-web
@@ -94,5 +96,13 @@ smb://ip
 
     $ sudo pkill deluge-web 
     $ nano ~/.config/deluge/web.conf
+    
+    $ sudo nano /etc/rc.local
+
+Avant “exit 0” on met :
+
+    # Start Deluge on boot:
+    sudo -u <user> /usr/bin/python /usr/bin/deluged
+    sudo -u <user> /usr/bin/python /usr/bin/deluge-web
 
 
