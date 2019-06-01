@@ -12,7 +12,7 @@ services:
       - TZ=Europe/Paris
     volumes:
       - /etc/deluge:/config
-      - /mnt/usb/mediaserver:/downloads
+      - /mnt/usb/mediaserver/Deposit:/downloads
     ports:
       - 8112:8112
     restart: unless-stopped
