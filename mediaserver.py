@@ -4,6 +4,8 @@
 Simple script Python ayant pour but de faciliter la "maintenance" du Serveur :
   - Reboot Propre
   - Arret des Services
+ToDo : Si il y avait 50 services ça ferait un peu lourd une varriable par commande ?
+Faire peut être un dictionnaire favorisant la recursivité d'une fonction action(a)
 """
 
 import sys
