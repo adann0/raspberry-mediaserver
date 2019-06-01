@@ -28,8 +28,8 @@ En ca :
 Tout en bas du fichier on ajoute :
 
     [Media]
-    comment = Read Only Media Server Folder Share from RPi
-    path = “/mnt/usb/mediaserver”
+    comment = Shared
+    path = "/mnt/usb/mediaserver"
     create mask = 0710
     directory mask = 0710
     read only = yes
@@ -40,9 +40,6 @@ Tout en bas du fichier on ajoute :
 On sauvegarde puis :
 
     $ sudo reboot
-
-Maintenant on peut accéder à Samba depuis le réseau local, uniquement en lecture, via :
-smb://<ladresseiplocaleduraspberry>
 
 ## SSL avec Samba
 
