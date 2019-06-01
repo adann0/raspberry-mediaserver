@@ -11,7 +11,7 @@ Faire peut être un dictionnaire favorisant la recursivité d'une fonction actio
 import sys
 import subprocess
 
-arg = ["reboot", "stop"] #liste avec tout les arg
+arg = ["start", "reboot", "stop"] #liste avec tout les arg
 
 """
 Fonction chargée de repérer si la commande comporte une erreur
@@ -35,6 +35,11 @@ def exec(cmd) :
 """
 Arrete tous les services
 """
+
+def start() :
+  deluge = "docker start deluge"
+  if exec(deluge) != 0 :
+    print("start: can't start deluge")
 
 def stop() :
   deluge = "docker stop deluge"
@@ -86,3 +91,5 @@ if __name__ == "__main__" :
     reboot()
   elif sys.argv[2] == "stop" :
     stop()
+  elif sys.argv[2] == "start" :
+    start()
