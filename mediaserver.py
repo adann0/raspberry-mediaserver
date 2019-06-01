@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Script ayant pour but de faciliter la "maintenance" du Serveur :
+Simple script Python ayant pour but de faciliter la "maintenance" du Serveur :
   - Reboot Propre
   - Arret des Services
 """
@@ -39,10 +39,13 @@ def stop()
   samba = "sudo service smbd stop"
   if exec(deluge) != 0 :
     print("stop: can't stop deluge")
+    sys.exit(4)
   if exec(plex) != 0 :
     print("stop: can't stop plex")
+    sys.exit(5)
   if exec(samba) != 0 :
     print("stop: can't stop samba")
+    sys.exit(6)
   return()
   
 """
@@ -67,18 +70,7 @@ Reboot
 def reboot()
   if exec("sudo reboot") != 0 :
     print("reboot: can't reboot")
-  return()
-
-"""
-Arrete tout les services
-Ejecte le disque dur
-Reboot
-"""  
-
-def reboot() :
-  stop()
-  eject()
-  reboot()
+    sys.exit(10)
   return()
 
 if __name__ == "__main__" : 
@@ -86,4 +78,8 @@ if __name__ == "__main__" :
     print("USAGE: mediaserver {" + "|".join(arg) + "}")
     sys.exit(1)
   elif sys.argv[1] == "reboot" :
+    stop()
+    eject()
     reboot()
+  elif sys.argv[2] == "stop" :
+    stop()
