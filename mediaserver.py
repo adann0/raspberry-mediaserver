@@ -90,7 +90,7 @@ def status() :
     print("status: can't get plex")
   if exec(samba, out=True) != 0 :
     print("status: can't get samba")
- return()
+  return()
   
 """
 Ejecte le disque dur
