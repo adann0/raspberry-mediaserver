@@ -24,7 +24,7 @@ def false_arg() :
 
 """
 Execute une commande passé en argument et retourne le code erreur/sortie
-Print sur stdout la commande si out=True
+Print sur stdout la commande si out=True, pour status()
 """
 
 def exec(cmd, out=False) :
@@ -71,13 +71,13 @@ def status() :
   deluge = "docker logs deluge"
   plex = "sudo systemctl status plexmediaserver.service"
   samba = "sudo service smbd status"
-    if exec(deluge) != 0 :
+    if exec(deluge, out=True) != 0 :
     print("status: can't get deluge")
     sys.exit(21)
-  if exec(plex) != 0 :
+  if exec(plex, out=True) != 0 :
     print("status: can't get plex")
     sys.exit(22)
-  if exec(samba) != 0 :
+  if exec(samba, out=True) != 0 :
     print("status: can't get samba")
     sys.exit(23)
  return()
