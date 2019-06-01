@@ -12,6 +12,13 @@ https://www.skyminds.net/linux-cannot-set-default-locale/
 
 https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#disk-format
 
+# Three
+
+    $ mkdir -p /mnt/usb/mediaserver/Deposit/.backup &&
+    mkdir -p /mnt/usb/mediaserver/Deposit/.downloading &&
+    mkdir -p /mnt/usb/mediaserver/Films &&
+    mkdir -p /mnt/usb/mediaserver/Series
+
 # Samba
 
 ## Installation
@@ -74,15 +81,6 @@ smb://ip
     wget https://downloads.plex.tv/plex-media-server-new/1.15.3.876-ad6e39743/debian/plexmediaserver_1.15.3.876-ad6e39743_armhf.deb &&
     sudo dpkg -i plexmediaserver_1.15.3.876-ad6e39743_armhf.deb &&
     rm plexmediaserver_1.15.3.876-ad6e39743_armhf.deb
-
-# Three
-
-    $ mkdir -p /mnt/usb/mediaserver/Deposit/.backup &&
-    mkdir -p /mnt/usb/mediaserver/Deposit/.downloading &&
-    mkdir -p /mnt/usb/mediaserver/Films &&
-    mkdir -p /mnt/usb/mediaserver/Series &&
-    sudo mkdir -p /etc/deluge &&
-    sudo chown -R $USER:$USER /etc/deluge
 
 # Deluge
 
