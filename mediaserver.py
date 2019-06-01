@@ -33,7 +33,7 @@ def exec(cmd) :
 Arrete tous les services
 """
 
-def stop()
+def stop() :
   deluge = "docker stop deluge"
   plex = "sudo systemctl stop plexmediaserver.service"
   samba = "sudo service smbd stop"
@@ -52,7 +52,7 @@ def stop()
 Ejecte le disque dur
 """  
 
-def eject()
+def eject() :
   umount = "sudo udisks --unmount /dev/sda1"
   detach = "sudo udisks --detach /dev/sda"
   if exec(umount) != 0 :
@@ -67,7 +67,7 @@ def eject()
 Reboot
 """
   
-def reboot()
+def reboot() :
   if exec("sudo reboot") != 0 :
     print("reboot: can't reboot")
     sys.exit(10)
