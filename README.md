@@ -121,16 +121,16 @@ Reboot une dernière fois :
     $ sudo service darkstat restart
     
 http://ip:666
+    
+# Bonus
 
-# Increase SWAP
+## Increase SWAP
 
     $ sudo nano /etc/dphys-swapfile
     
     CONF_SWAPFILE=2048
     
     $ sudo /etc/init.d/dphys-swapfile restart
-    
-# Bonus
 
 ## Fuites de mémoire avec Plex
 
