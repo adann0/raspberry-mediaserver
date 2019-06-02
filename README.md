@@ -122,3 +122,8 @@ Reboot une dernière fois :
     
 http://ip:666
 
+# Increase SWAP
+
+    $ sudo nano /etc/dphys-swapfile
+    
+    CONF_SWAPFILE=2048
