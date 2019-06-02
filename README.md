@@ -134,3 +134,16 @@ http://ip:666
     CONF_SWAPFILE=2048
     
     $ sudo /etc/init.d/dphys-swapfile restart
+    
+# Bonus
+
+## Fuites de mémoire avec Plex
+
+Embetant d'avoir un service qui utilise beaucoup de mémoire alors que personne ne l'utilise :
+
+    $ sudo nano /lib/systemd/system/plexmediaserver.service
+
+    MemoryMax=350M
+
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl restart plexmediaserver
