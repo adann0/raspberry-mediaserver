@@ -147,3 +147,5 @@ Embetant d'avoir un service qui utilise beaucoup de mémoire alors que personne 
 
     $ sudo systemctl daemon-reload
     $ sudo systemctl restart plexmediaserver
+
+A ajuster en fonction des besoins mais aucune perte de performance au niveau de Plex sur un Raspberry avec ce setting pour le moment.
