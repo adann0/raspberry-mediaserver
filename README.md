@@ -1,5 +1,10 @@
 # raspberry-mediaserver
 
+# Stop All Process
+
+    $ sudo service darkstat stop &&
+    
+
 # Post Install
 
 https://gist.github.com/adann0/9eff3e831e514988579337dc11492570
@@ -127,3 +132,5 @@ http://ip:666
     $ sudo nano /etc/dphys-swapfile
     
     CONF_SWAPFILE=2048
+    
+    $ sudo /etc/init.d/dphys-swapfile restart
