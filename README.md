@@ -131,6 +131,9 @@ http://ip:666
 
     $ sudo apt update && sudo apt install forked-daapd
     $ sudo nano /etc/forked-daapd.conf
+    
+    directories = { "/mnt/itunesserver/" } 
+    
     $ sudo /etc/init.d/forked-daapd restart
 
 
