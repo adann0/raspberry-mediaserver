@@ -18,6 +18,7 @@ https://gist.github.com/adann0/4aad4526145044aceb40d8caf26524d1#disk-format
     mkdir -p /mnt/usb/mediaserver/Deposit/.downloading &&
     mkdir -p /mnt/usb/mediaserver/Films &&
     mkdir -p /mnt/usb/mediaserver/Series
+    mkdir -p /mnt/usb/itunesserver/
 
 # Samba
 
@@ -121,7 +122,18 @@ Reboot une dernière fois :
     $ sudo service darkstat restart
     
 http://ip:666
+
+# forked-daapd
+
+    $ nano /etc/apt/sources.list
     
+    deb http://www.gyfgafguf.dk/raspbian wheezy-backports/armhf/
+
+    $ sudo apt update && sudo apt install forked-daapd
+    $ sudo nano /etc/forked-daapd.conf
+    $ sudo /etc/init.d/forked-daapd restart
+
+
 # Bonus
 
 ## Increase SWAP
